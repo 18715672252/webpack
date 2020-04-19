@@ -10,6 +10,7 @@ module.exports = {
         ]
     }
 }
+
 //解析es6语法（babel-loader）----------------------------------------------------------
 //1.npm i @babel/core -D
 //2.npm i @babel/preset-env -D
@@ -38,6 +39,7 @@ module.exports = {
         ]
     }
 }
+
 //解析react的jsx语法----------------------------------------------
 //1.npm i @babel/core -D
 //2.npm i @babel/preset-env -D
@@ -71,6 +73,7 @@ module.exports = {
         ]
     }
 }
+
 //解析css------------------------------------------------------------------
 //1.nmp i style-loader css-loader -D
 //2.loader配置如下
@@ -90,6 +93,7 @@ module.exports = {
     }
 }
 //ps:先使用css-loader解析css,解析好的css传递给style-loader（css预处理语言以此类推）
+
 //解析less---------------------------------------------------------------------------------------------------
 //1.nmp i style-loader css-loader -D
 //2.loader配置如下
@@ -109,7 +113,8 @@ module.exports = {
     }
 }
 //ps:先使用css-loader解析css,解析好的css传递给style-loader（css预处理语言以此类推）
-//解析图片（file-loader）------------------------------------------------------------------------------------
+
+//解析图片1（file-loader解决通过js引入图片）import img from '../img/logo.png------------------------------------------------------------------------------------
 //1.npm i file-loader -D
 module.exports = {
     entry:'./src/index.js',
@@ -122,6 +127,31 @@ module.exports = {
             {
                 test:/\.(png|jpg|jpeg|gif)$/,
                 use:'file-loader'
+            }
+        ]
+    }
+}
+
+//解析图片2（url-loader解决通过img标签通过ejs引入图片）<img src="<%= require(../img/1.png) %>">------------------------------------------------------------------------------------
+//1.npm i url-loader -D
+module.exports = {
+    entry:'./src/index.js',
+    output:{
+        filename:'app.js',
+        path:path.resolve(__dirname,'./dist')
+    },
+    module:{
+        rules:[
+            {
+                test:/\.(png|jpg|jpeg|gif)$/,
+                use:[
+                    {
+                        loader:'url-loader',
+                        options:{
+                            esModule:false
+                        }
+                    }
+                ]
             }
         ]
     }
