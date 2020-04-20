@@ -31,7 +31,7 @@ module.exports = {
         path:path.resolve(__dirname,'../dist')
     }
 }
-//提取css打包到css文件中并为打包生成的css文件设置hash的配置
+//提取css打包到css文件中并为打包生成的css文件设置hash的配置，插入到HtmlWebpackPlugin配置的html文件中
 //要用到插件mini-css-extract-plugin
 //还要用到mini-css-extract-plugin的loader(该loader不能与style-loader一起使用)
 let MiniCssEctractPlugin = require('mini-css-extract-plugin')
@@ -42,6 +42,7 @@ module.exports = {
     },
     output:{
         filename:'[name][chunkhash:8].js',
+        //filename:'js/[name][chunkhash:8].js',//该配置可以在生成的dist文件夹下再生成一个js文件夹，把打包生成的js文件放在里面
         path:path.resolve(__dirname,'../dist')
     },
     module:{
@@ -57,7 +58,9 @@ module.exports = {
             template:'./index.html'
         }),
         new MiniCssEctractPlugin({
-            filename:'[name][contenthash:8].css'
+            filename:'abc[contenthash:8].css'//打包生成css文件为abcxxxxxxxx.css
+            //filename:'[name][contenthash:8].css'////打包生成css文件为appxxxxxxxx.css
+            //filename:'css/[name][contenthash:8].css'//该配置可以在生成的dist文件夹下再生成一个css文件夹，把提取css生成的css文件放在里面
         })
     ]
 }
