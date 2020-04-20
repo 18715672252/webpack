@@ -16,6 +16,8 @@ module.exports = {
     }
 }
 //3.多入口多出口（适合多页应用）entry是个对象：
+//output中filename节点设置为'[name].js'（name占位符）
+//如果想让打包后的文件带有hash值的话output中filename节点设置为'[name][chunkhash:8].js'（chunkhash占位符）（配置详情见FileHash.js）
 //key值:即为该入口文件打包后的文件名字，例：入口文件为'./src/index.js，webapck对该文件进行打包 ， 打包后输出的文件名为app.js
 //value为入口文件的相对路径
 module.exports = {

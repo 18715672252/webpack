@@ -11,6 +11,7 @@ module.exports = {
     }
 }
 
+
 //解析es6语法（babel-loader）----------------------------------------------------------
 //1.npm i @babel/core -D
 //2.npm i @babel/preset-env -D
