@@ -10,3 +10,5 @@
 
 5.配置别名resolve节点下alias:{'vue$':'vue/dist/vue.esm.js'}
 
+// ps：详情见vue-loader官网：https://vue-loader.vuejs.org/zh/guid
+
