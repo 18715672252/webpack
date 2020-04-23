@@ -2,7 +2,10 @@
 用处1.自动css补齐前缀
 1.npm i postcss-loader autoprefixer -D
 2.let Autoprefixer = require('autoprefixer')
-3.配置postcss-loader，在解析样式文件的use中配置该loader（该loader位置在样式解析的loader后面）并在该loader中的options中配置Autoprefixer插件
+3.配置postcss-loader，在解析样式文件的use中配置该loader
+4.如果解析的是css文件，那么该postcss-loader应配置在css-loader之后
+5.如果解析的是less文件，那么该postcss-loader应配置在less-loader之后（
+6.并在该loader中的options中配置Autoprefixer插件
 用处2.px自动转化为rem
 */
 const path = require('path')
