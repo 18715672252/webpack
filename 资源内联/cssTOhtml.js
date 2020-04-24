@@ -1,0 +1,21 @@
+//方案一：style-loader
+module.exports = {
+    module:{
+        rules:[
+            {
+                test:/\.css$/,
+                use:[
+                    {
+                        loader:'style-loader',
+                        options:{
+                            insertAt:'top',//样式插入到head
+                            singleton:true//将所有的style标签合成一个
+                        }
+                    },
+                    'css-loader'
+                ]
+            }
+        ]
+    }
+}
+//方案二：使用插件html-line-css-webpack-plugin
