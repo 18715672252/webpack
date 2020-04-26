@@ -45,12 +45,13 @@
     //...
     optimization: {
       splitChunks: {
-        minSize:0,
+        minSize:0,//规定公共资源大小值在什么范围才被提取，（大于等于这个值才会提取形成公共的文件）
         cacheGroups: {
           commons: {
-            test: /(vue|vuex|vue-router)/,
-            name: 'vendors',
-            chunks:'all'
+            chunks:'all',
+            name: 'common',//公共资源提取所形成的文件名字，要在htmlwebpackplugin的chunks中添加该名字
+            minChunks:2,//最小引用次数
+            
           }
         }
       }
