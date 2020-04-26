@@ -6,24 +6,26 @@ npm i html-webpack-externals-plugin -D
 */
 let HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin')
 module.exports = {
-    new HtmlWebpackExternalsPlugin({
-        externals:[
-            {
-                module:'vue',
-                entry:'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js',
-                global:'Vue'
-            },
-            {
-                module:'vuex',
-                entry:'https://unpkg.com/vuex@2.0.0.js',
-                global:'Vuex'
-            },
-            {
-                module:'vue-router',
-                entry:'https://unpkg.com/vue-router@2.0.0/dist/vue-router.js',
-                global:'Vue-Router'
-            }
-        ]
-    })
+    plugins:[
+        new HtmlWebpackExternalsPlugin({
+            externals:[
+                {
+                    module:'vue',
+                    entry:'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js',
+                    global:'Vue'
+                },
+                {
+                    module:'vuex',
+                    entry:'https://unpkg.com/vuex@2.0.0.js',
+                    global:'Vuex'
+                },
+                {
+                    module:'vue-router',
+                    entry:'https://unpkg.com/vue-router@2.0.0/dist/vue-router.js',
+                    global:'Vue-Router'
+                }
+            ]
+        })
+   ]
 }
 //这样配置就会在模板html文件中引入这三个JS文件,打包后的html文件也会自动引入
