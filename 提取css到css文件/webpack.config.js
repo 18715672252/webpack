@@ -3,6 +3,7 @@
 //要用到插件mini-css-extract-plugin
 //还要用到mini-css-extract-plugin的loader(该loader不能与style-loader一起使用)
 //提取vue中css并生成文件夹的时候，MiniCssEctractPlugin.loader要放在vue-style-loader后面
+//提取vue中css并生成文件夹的时候use:['vue-style-loader',MiniCssExtractPlugin.loader,'css-loader']
 let MiniCssEctractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     entry:{
